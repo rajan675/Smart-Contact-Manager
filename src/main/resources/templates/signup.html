@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{base::layout(~{::section})}">
+<head>
+<meta charset="ISO-8859-1">
+<title>Home Page</title>
+</head>
+<body>
+	<section>
+	<div class="signinbox">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6 offset-md-3 ">
+					<div class="my-card">
+						<!--  
+						<div th:if="${session.message}"
+							th:append="${session.message.type}" class="alert alert-primary"
+							role="alert">
+							<p th:text="${session.message.content}"></p>
+							<th:block th:text="${#session.removeAttribute('message')}"></th:block>
+						</div>
+						-->
+						<div th:if="${message}" class="alert alert-success">
+							<p th:text="${message}"></p>
+						</div>
+						<h3 class="text-center">Register Here</h3>
+						<form th:action="@{/do_register}" method="post"
+							th:object="${user}">
+							<div class="mb-3">
+								<label for="exampleInputEmail1" class="form-label">Your
+									name</label> <input type="text" class="form-control"
+									id="exampleInputEmail1" aria-describedby="emailHelp"
+									required="required" th:value="${user.name}" name="name">
+							</div>
+							<div class="mb-3">
+								<label for="exampleInputEmail1" class="form-label">Email
+									address</label> <input type="email" class="form-control"
+									id="exampleInputEmail1" aria-describedby="emailHelp"
+									required="required" th:value="${user.email}" name="email">
+							</div>
+							<div class="mb-3">
+								<label for="exampleInputPassword1" class="form-label">Password</label>
+								<input type="password" class="form-control"
+									id="exampleInputPassword1" required="required" name="password">
+							</div>
+							<div class="mb-3">
+								<label for="exampleFormControlTextarea1" class="form-label"></label>
+								<textarea class="form-control" id="exampleFormControlTextarea1"
+									placeholder="Enter something about yourself" rows="4"
+									th:value="${user.about}" name="about"></textarea>
+							</div>
+							<div class="form-check">
+								<input class="form-check-input" type="checkbox" value=""
+									id="flexCheckDefault" name="agreement"> <label
+									class="form-check-label" for="flexCheckDefault"> Accept
+									terms and conditions </label>
+							</div>
+							<div class="container text-center">
+								<button type="submit" class="btn bg-primary text-white">Submit</button>
+								<button type="reset" class="btn btn-warning text-white">Reset</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+	</section>
+</body>
+</html>

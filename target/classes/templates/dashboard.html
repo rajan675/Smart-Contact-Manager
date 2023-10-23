@@ -1,0 +1,12 @@
+<html xmlns:th="http://www.thymeleaf.org" 
+		th:replace="~{userbase::layout(~{::section})}">
+<head>
+<meta charset="ISO-8859-1">
+<title>Home Page</title>
+</head>
+<body>
+	<section>
+		<h1>Hi, <span th:text="${user.name} "></span></h1>
+	</section>
+</body>
+</html>

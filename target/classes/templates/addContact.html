@@ -1,0 +1,88 @@
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{userbase::layout(~{::section})}">
+<head>
+<meta charset="ISO-8859-1">
+<title>Home Page</title>
+</head>
+<body>
+	<section>
+		<div class="card mr-4">
+			<div class="card-body">
+				<h3 class="text-center"><i class="fa-solid fa-address-book"></i>Add Contact</h3>
+				<div class="conatiner-fluid mt-1">
+					<div class="row">
+						<div class="col-md-8 offset-md-2">
+							<form action="#" th:object="${contact}" method="post"
+								enctype="multipart/form-data" th:action="@{/user/processContact}"
+								class="mt-2">
+									<div class="input-group">
+										<div class="input-group-text">
+											<i class="fa-solid fa-user-plus"></i>
+										</div>
+										<input type="text" class="form-control"
+											id="autoSizingInputGroup" placeholder="Enter name here" name="name" required="required">
+									</div>
+									<div class="input-group mt-3">
+										<div class="input-group-text">
+											<i class="fa-solid fa-plus"></i>
+										</div>
+										<input type="text" class="form-control"
+											id="autoSizingInputGroup" placeholder="Nik name" name="secondName">
+									</div>
+									<div class="input-group mt-3">
+										<div class="input-group-text">
+											<i class="fa-solid fa-square-phone"></i>
+										</div>
+										<input type="number" class="form-control"
+											id="autoSizingInputGroup" placeholder="Phone number" name="phone" required="required">
+									</div>
+									<div class="input-group mt-3">
+										<div class="input-group-text">
+											<i class="fa-solid fa-envelope"></i>
+										</div>
+										<input type="email" class="form-control"
+											id="autoSizingInputGroup" placeholder="e-mail" name="email" required="required">
+									</div>
+									<div class="input-group mt-3">
+										<div class="input-group-text">
+											<i class="fa-solid fa-briefcase"></i>
+										</div>
+										<input type="text" class="form-control"
+											id="autoSizingInputGroup" placeholder="Work" name="work">
+									</div>
+									<div class="input-group mt-3">
+										<textarea class="form-control" rows="4"
+											id="mytextarea" placeholder="Enter description  here" name="description"></textarea>
+									</div>
+									<div class="custom-file">
+									<input type="file" >
+									</div>
+									<div class="container text-center">
+									<button class="btn bg-primary text-white">Save Contact</button>
+									</div>
+							</form>
+
+						</div>
+
+					</div>
+
+				</div>
+			</div>
+
+		</div>
+		<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+		 <script>
+      tinymce.init({
+        selector: '#mytextarea'
+      });
+      </script>
+      <script>
+	$(document).ready(()=>{
+		$(".item").removeClass("active");
+		$("#add").addClass("active");
+	});
+	</script>
+	</section>
+	
+</body>
+</html>
